@@ -13,7 +13,16 @@ Bowling.prototype.rollTwo = function(number){
 };
 
 Bowling.prototype.frameScore = function(rollOne, rollTwo = 0){
-  this.scorecard.push(rollOne + rollTwo)
-  this.frame += 1
-  return rollOne + rollTwo
+  if(rollOne === 10){
+    this.scorecard.push("Strike!");
+    this.frame += 1;
+    return "Strike!";
+  } else {
+    this.scorecard.push(rollOne + rollTwo)
+    this.frame += 1
+      if(this.scorecard[this.scorecard.length-2] === "Strike!"){
+        this.scorecard[this.scorecard.length-2] = 10 + rollOne + rollTwo
+      }
+    return rollOne + rollTwo
+  };
 };

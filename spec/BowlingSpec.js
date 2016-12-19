@@ -24,8 +24,14 @@ describe("Bowling", function(){
 
     it("should move to next frame if rollOne is a strike", function(){
       bowling.frameScore(bowling.rollOne(10));
-      expect(bowling.scorecard).toEqual([10]);
+      expect(bowling.scorecard).toEqual(["Strike!"]);
       expect(bowling.frame).toEqual(2)
+    });
+
+    it("should add the bonus frame to the previous strike", function(){
+      bowling.frameScore(bowling.rollOne(10));
+      bowling.frameScore(bowling.rollOne(8), bowling.rollTwo(1));
+      expect(bowling.scorecard).toEqual([19,9])
     });
   });
 
