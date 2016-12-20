@@ -78,4 +78,24 @@ describe("Bowling", function(){
 
   });
 
+  describe("It should raise an error if:", function(){
+
+    beforeEach(function(){
+      bowling = new Bowling()
+    });
+
+    it("roll one has a score of greater than 10", function(){
+      expect(function() {bowling.frameScore(bowling.rollOne(11))}).toThrowError("Invalid score: Any one roll cannot exceed 10")
+    });
+
+    it("roll two has a score of greater than 10", function(){
+      expect(function() {bowling.frameScore(bowling.rollOne(0), bowling.rollTwo(11))}).toThrowError("Invalid score: Any one roll cannot exceed 10")
+    });
+
+    it("frame score exceeds 10", function(){
+      expect(function() {bowling.frameScore(bowling.rollOne(8), bowling.rollTwo(3))}).toThrowError("Invalid score: Frame score cannot exceed 10")
+    });
+
+  });
+
 });
