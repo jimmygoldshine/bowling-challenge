@@ -52,9 +52,28 @@ describe("Bowling", function(){
     it("should add the bonus two subsequent rolls - one strike, one non-strike", function(){
       bowling.frameScore(bowling.rollOne(10));
       bowling.frameScore(bowling.rollOne(10));
-      bowling.frameScore(bowling.rollOne(10))
+      bowling.frameScore(bowling.rollOne(10));
       bowling.frameScore(bowling.rollOne(6), bowling.rollTwo(2));
       expect(bowling.scorecard).toEqual([30, 26, 18, 8]);
+    });
+
+  });
+
+  describe("when a spare is scored", function(){
+
+    beforeEach(function(){
+      bowling = new Bowling()
+    });
+
+    it("should declare a spare when 10 is scored in a frame over 2 rolls", function(){
+      bowling.frameScore(bowling.rollOne(9), bowling.rollTwo(1));
+      expect(bowling.scorecard).toEqual(["Spare!"])
+    });
+
+    it("should add the bonus off the next one roll onto frame score", function(){
+      bowling.frameScore(bowling.rollOne(9), bowling.rollTwo(1));
+      bowling.frameScore(bowling.rollOne(5), bowling.rollTwo(3));
+      expect(bowling.scorecard).toEqual([15, 8])
     });
 
   });
