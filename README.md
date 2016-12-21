@@ -12,7 +12,7 @@ Set Up:
 
 * Fork this repo.
 * Clone your own repo to your local machine.
-* From the terminal, run open SpecRunner.html in your local repo.
+* From the terminal, run ```open SpecRunner.html``` in your local repo.
 * Open the console with ```Alt + Cmd + i```
 * In the console, create a new game with the ```game = new Bowling();```
 command.
