@@ -1,31 +1,37 @@
 
-Bowling Challenge
+A Program for Scoring 10 Pin Bowling
 =================
 
 
-* Challenge time: rest of the day and weekend, and the entire of Makersbnb week if you need it, until Monday 9am
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday week
+* Use the application to keep track of your game of bowling.
+* The app will return a player's scorecard after each frame, and final score and scorecard at the end of the game.
+* After each frame, the player's scorecard will be returned.
 
-Task: 
+Set Up:
 -----
 
-Count and sum the scores of a bowling game for one player (in JavaScript).
+* Fork this repo.
+* Clone your own repo to your local machine.
+* From the terminal, run open SpecRunner.html in your local repo.
+* Open the console with ```Alt + Cmd + i```
+* In the console, create a new game with the ```
+game = new Bowling();
+```
+command.
 
-A bowling game consists of 10 frames in which the player tries to knock down the 10 pins. In every frame the player can roll one or two times. The actual number depends on strikes and spares. The score of a frame is the number of knocked down pins plus bonuses for strikes and spares. After every frame the 10 pins are reset.
+Scoring:
+-----
+* In the console, use the command ```game.nextFrame(roll1, roll2);``` to score the first frame.
+* Continue in the above way until you have completed 10 frames.
 
-As usual please start by 
+NOTE: On the 10th frame, if you score a strike, you gain two extra rolls. Use the ```game.nextFrame(roll1, roll2)``` to enter in the next two. However, if you achieve a strike on your first roll, leave roll2 blank. The game will treat your bonus roll as a frame so a strike causes another frame exist. Then use the ```game.nextFrame(roll1)``` command to score your second and final bonus roll.
 
-* Forking this repo
-
-* Finally submit a pull request before Monday week at 9am with your solution or partial solution.  However much or little amount of code you wrote please please please submit a pull request before Monday week at 9am.  And since next week is lab week you have a full extra week to work on this.
-
-
-### Optional Extra
+#### Future Features
 
 Create a nice interactive animated interface with jQuery.
+
+
+# The Rules of 10-Pin Bowling
 
 ## Strikes
 
@@ -55,25 +61,3 @@ In the image below you can find some score examples.
 More about ten pin bowling here: http://en.wikipedia.org/wiki/Ten-pin_bowling
 
 ![Ten Pin Score Example](images/example_ten_pin_scoring.png)
-
-Code Review
------------
-
-In code review we'll be hoping to see:
-
-* All tests passing
-* The code is elegant: every class has a clear responsibility, methods are short etc. 
-
-Reviewers will potentially be using this [code review rubric](docs/review.md).  Note that referring to this rubric in advance may make the challenge somewhat easier.  You should be the judge of how much challenge you want.
-
-CI
---
-
-We are running JSHint on our CI server - save yourself having to wait for a build to happen by linting your code on your machine first. [Here are installations for most popular editors](http://jshint.com/install/). Grab the `.jshintrc` from this repo and have better JS!
-
-If you don't follow the usual Jasmine convention of having your tests in `spec` and your code in `src`, or you've built your code into a little app, CI will probably fail for you as we are doing *sneaky things*&trade; to make your tests run. However, there is a simple fix:
-
-1. Open up your `.travis.yml`
-2. On line 8, you will see where it looks for your code (`'src/**/*.js'`) and your tests (`'spec/**/*.js'`)
-3. Adjust these to point to the correct directories
-4. Done.
